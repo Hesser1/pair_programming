@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get "movies"
     end
   end
+  #adding rewords page
+  resources :rewards, only: :index
 
   #this part allows to use /api/v1/movies or /api/v2/movies
   # to get shorten or extended versions of JSON detail list with movies in the app
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
       resource 'movies'
     end
   end
-  resources :movies, only: [:index, :show] do
+  resources :movies, only: [:index, :show, :destroy] do
     resources :comments
     member do
       get :send_info
