@@ -7,6 +7,10 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    if current_user
+      @user_has_comment = @movie.comments.size > 0 && @movie.comments.find_by_user_id(current_user.id)
+      @comment = @movie.comments.build unless @user_has_comment
+    end
   end
 
   def send_info

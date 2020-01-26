@@ -1,0 +1,14 @@
+%table.table.table-striped
+  %caption Comments
+  %thead
+    %tr
+      %td Created by
+      %td Comment
+      %td
+  %tbody
+    - @movie.comments.order(id: :desc).each_with_index do |comment, i|
+      - if comment.id
+        %tr
+          %td= comment.user.name
+          %td= comment.comment
+          %td= link_to 'delete', [@movie, comment], :method => :delete, data: {confirm: "Do you want to delete the comment?"} if current_user == comment.user

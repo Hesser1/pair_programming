@@ -13,5 +13,11 @@
   -#calling plot method from the movie model
   %p= @movie.plot
 
+  - if user_signed_in? and !@user_has_comment
+    = render "form"
+  %hr
+  - if @movie.comments.count > 0
+    = render "comments_table"
+
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
