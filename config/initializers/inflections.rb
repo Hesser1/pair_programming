@@ -14,3 +14,8 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+#with this change we can use API::V1 instead of api::V1
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+end

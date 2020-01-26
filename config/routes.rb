@@ -7,6 +7,17 @@ Rails.application.routes.draw do
       get "movies"
     end
   end
+
+  #this part allows to use /api/v1/movies or /api/v2/movies
+  # to get shorten or extended versions of JSON detail list with movies in the app
+  namespace :api, :via => [:get], :defaults => { :format => :json } do
+    namespace :v1 do
+      resource 'movies'
+    end
+    namespace :v2 do
+      resource 'movies'
+    end
+  end
   resources :movies, only: [:index, :show] do
     member do
       get :send_info
