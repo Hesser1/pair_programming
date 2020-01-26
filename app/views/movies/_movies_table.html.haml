@@ -13,3 +13,12 @@
               = link_to movie.genre.name, movies_genre_path(movie.genre)
             = ' (' + movie.released_at.to_s + ')'
           %p= movie.description
+          %h4 Plot
+          -#calling plot method from the movie model
+          %p= movie.plot
+          %td
+            %h4 Rating
+            -#calling rating method from the movie model
+            %p= movie.rating
+            -#calling poster method from the movie model and changing its size
+            %img.img-rounded{ src: movie.poster, :height =>"60", :width => "60"  }

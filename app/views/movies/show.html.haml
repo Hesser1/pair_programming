@@ -1,5 +1,17 @@
 %h1= @movie.title
 .jumbotron
   = @movie.description
+
+  %hr
+    -#calling poster method from the movie model
+  %img{ src: @movie.poster }
+  %hr
+  %h3 Rating
+  -#calling rating method from the movie model
+  %p= @movie.rating
+  %h3 Plot
+  -#calling plot method from the movie model
+  %p= @movie.plot
+
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
