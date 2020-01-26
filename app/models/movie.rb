@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+include ActiveModel::Validations
 
 class Movie < ApplicationRecord
   belongs_to :genre
