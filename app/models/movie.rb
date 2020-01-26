@@ -15,6 +15,7 @@ include ActiveModel::Validations
 
 class Movie < ApplicationRecord
   belongs_to :genre
+  has_many :comments
   # getting plot from movie details
   def plot
     api_data['plot'] unless api_data.nil?
